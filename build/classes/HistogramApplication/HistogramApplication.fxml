@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HistogramApplication.HistogramApplicationFXMLController">
+   <top>
+    <MenuBar prefHeight="26.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem fx:id="saveFileMenuButton" mnemonicParsing="false" onAction="#saveFileAction" text="Save" />
+            <MenuItem fx:id="openFIleMenuButton" mnemonicParsing="false" onAction="#openFileAction" text="Open…" />
+            <MenuItem fx:id="quitMenuButton" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem id="clearMenuButton" fx:id="clearMenuButton" mnemonicParsing="false" onAction="#clearAction" text="Clear" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+   </top>
+   <center>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="CENTER">
+      <children>
+            <GridPane gridLinesVisible="true" layoutY="1.0" prefHeight="382.0" prefWidth="665.0" style="-fx-background-color: #BBBBBB; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" maxWidth="208.39996337890625" minWidth="10.0" percentWidth="15.0" prefWidth="60.399993896484375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.80004882812494" minWidth="10.0" percentWidth="70.0" prefWidth="463.99999999999994" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="141.59997558593744" minWidth="10.0" percentWidth="15.0" prefWidth="68.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="180.79999389648438" minHeight="10.0" percentHeight="10.0" prefHeight="95.19998779296876" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="312.0000061035156" minHeight="10.0" percentHeight="90.0" prefHeight="277.6000122070312" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane alignment="CENTER" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="231.20003662109374" minHeight="10.0" percentHeight="60.0" prefHeight="198.400048828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="231.20003662109374" minHeight="10.0" percentHeight="30.0" prefHeight="198.400048828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="63.19997558593752" minHeight="0.0" percentHeight="10.0" prefHeight="44.79995117187502" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane gridLinesVisible="true">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="45.200018310546874" minHeight="10.0" percentHeight="20.0" prefHeight="20.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="57.6" minHeight="10.0" percentHeight="50.0" prefHeight="35.999993896484376" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="55.99999389648437" minHeight="10.0" percentHeight="30.0" prefHeight="55.20000610351562" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox id="normalizationCheck" fx:id="normalizationCheck" mnemonicParsing="false" onAction="#normalizeAction" text="Normalize" GridPane.rowIndex="1" />
+                              <GridPane GridPane.rowIndex="2">
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" percentHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" percentHeight="70.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <CheckBox fx:id="dataBarFitCheck" mnemonicParsing="false" onAction="#dataFitAction" text="Bar" />
+                                          <CheckBox fx:id="dataLineFitCheck" mnemonicParsing="false" onAction="#dataFitAction" text="Line" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fit Data" />
+                                 </children>
+                              </GridPane>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Modifications" />
+                           </children>
+                        </GridPane>
+                        <GridPane style="-fx-border-color: #555555;" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text stroke="#0d0d0d" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Presentation" />
+                              <CheckBox id="barChartCheck" fx:id="barChartCheck" mnemonicParsing="false" onAction="#showBarChartAction" selected="true" text="Bar Chart" GridPane.rowIndex="1" />
+                              <CheckBox id="lineChartCheck" fx:id="lineChartCheck" mnemonicParsing="false" onAction="#showLineChartAction" text="Line Chart" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <Button id="clearButton" fx:id="clearButton" mnemonicParsing="false" onAction="#clearAction" style="-fx-border-color: #000000;" text="Clear Data" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="64.59997787475587" minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="64.59997787475587" minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="64.59997787475587" minHeight="2.999972546100622" percentHeight="5.0" prefHeight="26.599999999999998" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="138.39999389648438" minHeight="0.0" percentHeight="35.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="103.99997558593748" minHeight="10.0" percentHeight="5.0" prefHeight="93.60001220703123" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="103.99997558593748" minHeight="10.0" percentHeight="30.0" prefHeight="93.60001220703123" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextArea id="dataBasicInfo" fx:id="dataBasicInfo" prefHeight="117.0" prefWidth="103.0" GridPane.rowIndex="3" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Statistic Info" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fitting Parameters" GridPane.rowIndex="4" />
+                        <TextArea id="fitParametersInfo" fx:id="fitParametersInfo" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data Information" />
+                        <TextArea id="inputDataDetails" fx:id="inputDataDetails" prefHeight="47.0" prefWidth="103.0" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane prefHeight="34.0" prefWidth="474.0" GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="56.60001640319824" minHeight="10.0" prefHeight="11.8" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="74.59998168945313" minHeight="10.0" prefHeight="66.2" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <RadioButton id="sturgesFormulaOption" fx:id="sturgesFormulaOption" mnemonicParsing="false" onAction="#sturgesFormulaChosen" text="Sturge's  Formula" GridPane.columnIndex="1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="binFormula" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton id="squareRootOption" fx:id="squareRootOption" mnemonicParsing="false" onAction="#squareRootChosen" selected="true" text="Square Root" toggleGroup="$binFormula" />
+                              <RadioButton id="riceRuleOption" fx:id="riceRuleOption" mnemonicParsing="false" onAction="#riceRuleChosen" text="Rice Rule" toggleGroup="$binFormula" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bin Separation Method">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Text>
+                     </children>
+                  </GridPane>
+                  <StackPane id="chartStack" fx:id="chartStack" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button id="saveFileButton" fx:id="saveFileButton" mnemonicParsing="false" onAction="#saveFileAction" style="-fx-border-color: #000000;" text="Save File" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button id="openFileButton" fx:id="openFileButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openFileAction" style="-fx-border-color: #000000;" text="Open File" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+      </children>
+    </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="374.0" prefWidth="5.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="374.0" prefWidth="5.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="5.0" prefWidth="698.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
